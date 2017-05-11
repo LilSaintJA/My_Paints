@@ -1,0 +1,15 @@
+h1, h2 {
+    text-align: center;
+}
+
+#myCanvas {
+    border: 10px solid #000;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    display: block;
+    margin: 0 auto;
+}
+
+.paint {
+    margin: 30px;
+}
