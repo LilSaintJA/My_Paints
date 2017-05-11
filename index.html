@@ -2,11 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script src="js/main.js"></script>
     <title>Paint</title>
 </head>
-<body>
+<body class="#efebe9 brown lighten-5">
 <div class="container">
-    <canvas id="myCanvas" width="600" height="600"></canvas>
+    <h1>My Paints</h1>
+    <div class="paint">
+        <canvas id="myCanvas" width="800" height="450"></canvas>
+    </div>
+    <div class="row">
+        <h2 class="options">Options de dessins</h2>
+    </div>
+    <!--    <div class="row">
+            <div class="container">
+                <ul class="list-color">
+                    <li class="item-color" data-color="#000000">Blanc</li>
+                    <li class="item-color" data-color="#FFFFFF">Noir</li>
+                    <li class="item-color" data-color="#FF0000">Rouge</li>
+                    <li class="item-color" data-color="brown">Brun</li>
+                    <li class="item-color" data-color="orange">Orange</li>
+                    <li class="item-color" data-color="yellow">Jaune</li>
+                    <li class="item-color" data-color="green">Vert</li>
+                    <li class="item-color" data-color="cyan">Cyan</li>
+                    <li class="item-color" data-color="blue">Bleu</li>
+                    <li class="item-color" data-color="indigo">Indigo</li>
+                    <li class="item-color" data-color="violet">Violet</li>
+                    <li class="item-color" data-color="pink">Rose</li>
+                </ul>
+            </div>
+        </div>-->
+    <div class="row">
+        <span class="titre-options">Choix des couleurs</span>
+        <input type="color" class="colors">
+    </div>
+    <div class="row">
+        <span class="titre-options">Gomme</span>
+        <button class="btn btn-floating btn-large waves-effect waves-light #b71c1c red darken-4 gomme"><i class="fa fa-eraser" aria-hidden="true"></i></button>
+    </div>
+    <div class="row">
+        <span class="titre-options">Taille du pinceau</span>
+        <input type="range" min="2" max="50" value="5" step="1" class="largeur">
+    </div>
 </div>
 </body>
 </html>
