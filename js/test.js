@@ -9,14 +9,16 @@ $(function() {
 
     log('jQuery Is Ready');
 
-    var canvas      = document.getElementById('myCanvas'),
+    var canvas          = document.getElementById('myCanvas'),
         ctx,
-        clickX      = [],
-        clickY      = [],
-        clickDrag   = [],
+        clickX          = [],
+        clickY          = [],
+        clickDrag       = [],
         paint,
         size,
-        color;
+        color,
+        changeColor     = [],
+        changeSize      = [];
     log(canvas);
     log(clickX);
     log(clickY);
@@ -26,7 +28,6 @@ $(function() {
 
         // On click avec la souris
         canvas.addEventListener('mousedown', function (evt) {
-            log('je clique');
            var mouseX = evt.pageX - this.offsetLeft,
                mouseY = evt.pageY - this.offsetTop;
 
@@ -37,39 +38,32 @@ $(function() {
 
             // On bouge avec la souris
             canvas.addEventListener('mousemove', function (evt) {
-                log('je bouge');
                 if (paint) {
-                    log(paint);
                     canvasClick(evt.pageX - this.offsetLeft, evt.pageY - this.offsetTop, true);
                     drawCanvas();
                 }
             });
-
         });
 
 
 
         // On relache le bouton de la souris
         canvas.addEventListener('mouseup', function () {
-            log('je relache le click');
             paint = false;
         });
 
         // la souris quiite le canvas
         canvas.addEventListener('mouseleave', function () {
-            log('je pars');
             paint = false;
         });
     }
 
     function drawCanvas() {
         var i;
-        size = $('.largeur').val();
-        color = $('.colors').val();
 
-        ctx.strokeStyle = color;
+        // ctx.strokeStyle = '#000';
         ctx.lineJoin = 'round';
-        ctx.lineWidth = size;
+        // ctx.lineWidth = 5;
 
         for(i = 0; i < clickX.length; i += 1) {
             ctx.beginPath();
@@ -79,16 +73,22 @@ $(function() {
             } else {
                 ctx.moveTo(clickX[i] - 1, clickY[i]);
             }
-
             ctx.lineTo(clickX[i], clickY[i]);
             ctx.closePath();
+            ctx.strokeStyle = changeColor[i];
+            ctx.lineWidth = changeSize[i];
             ctx.stroke();
         }
     }
     
     function canvasClick(x, y, dragging) {
+        color = $('.colors').val();
+        size  = $('.largeur').val();
+        
         clickX.push(x);
         clickY.push(y);
         clickDrag.push(dragging);
+        changeColor.push(color);
+        changeSize.push(size);
     }
 });
