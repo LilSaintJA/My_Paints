@@ -1,4 +1,4 @@
-/*global console, document, $ */
+/*global console, document, $, window, Image */
 $(function () {
     'use strict';
 
@@ -37,6 +37,14 @@ $(function () {
     }
 
     /**
+     * Nettoie le canvas
+     *
+     */
+    function clearCanvas() {
+        tmpCtx.clearRect(0, 0, tmpCanvas.width, tmpCanvas.height);
+    }
+
+    /**
      * Dessine le canvas sans options
      *
      */
@@ -71,7 +79,7 @@ $(function () {
      *
      */
     function trait() {
-        tmpCtx.clearRect(0, 0, tmpCanvas.width, tmpCanvas.height);
+        clearCanvas();
 
         tmpCtx.beginPath();
         tmpCtx.moveTo(start_mouse.x, start_mouse.y);
@@ -86,7 +94,7 @@ $(function () {
      *
      */
     function rectangle() {
-        tmpCtx.clearRect(0, 0, tmpCanvas.width, tmpCanvas.height);
+        clearCanvas();
 
         var x       = Math.min(mouse.x, start_mouse.x),
             y       = Math.min(mouse.y, start_mouse.y),
@@ -102,7 +110,7 @@ $(function () {
      *
      */
     function rectangleFull() {
-        tmpCtx.clearRect(0, 0, tmpCanvas.width, tmpCanvas.height);
+        clearCanvas();
 
         var x       = Math.min(mouse.x, start_mouse.x),
             y       = Math.min(mouse.y, start_mouse.y),
@@ -118,19 +126,21 @@ $(function () {
      *
      */
     function circle() {
+        clearCanvas();
+
         var x,
             y,
             radius;
 
         x = (mouse.x + start_mouse.x) / 2;
         y = (mouse.y + start_mouse.y) / 2;
+
         radius = Math.max(
             Math.abs(mouse.x - start_mouse.x),
             Math.abs(mouse.y - start_mouse.y)
         ) / 2;
 
         tmpCtx.globalAlpha = 1;
-        tmpCtx.clearRect(0, 0, tmpCanvas.width, tmpCanvas.height);
         tmpCtx.beginPath();
         tmpCtx.arc(x, y, radius, 0, Math.PI * 2, false);
         tmpCtx.stroke();
@@ -142,11 +152,12 @@ $(function () {
      *
      */
     function circleFull() {
-        tmpCtx.clearRect(0, 0, tmpCanvas.width, tmpCanvas.height);
+        clearCanvas();
 
         var x,
             y,
             radius;
+
         x = (mouse.x + start_mouse.x) / 2;
         y = (mouse.y + start_mouse.y) / 2;
 
@@ -236,13 +247,13 @@ $(function () {
         /* ************************ MANAGE OPTIONS ************************ */
         /* ***************************************************************** */
 
-        tmpCanvas.addEventListener('mousemove', function(evt) {
+        tmpCanvas.addEventListener('mousemove', function (evt) {
 
             mouse.x = typeof evt.offsetX !== 'undefined' ? evt.offsetX : evt.layerX;
             mouse.y = typeof evt.offsetY !== 'undefined' ? evt.offsetY : evt.layerY;
         }, false);
 
-        canvas.addEventListener('mousemove', function(evt) {
+        canvas.addEventListener('mousemove', function (evt) {
 
             mouse.x = typeof evt.offsetX !== 'undefined' ? evt.offsetX : evt.layerX;
             mouse.y = typeof evt.offsetY !== 'undefined' ? evt.offsetY : evt.layerY;
@@ -267,12 +278,12 @@ $(function () {
             } else if (tool === 'rectangle') {
                 tmpCanvas.addEventListener('mousemove', rectangle, false);
                 rectangle();
-            } else if (tool === 'rectangleFull') {
-                tmpCanvas.addEventListener('mousemove', rectangleFull, false);
-                rectangleFull();
             } else if (tool === 'circle') {
                 tmpCanvas.addEventListener('mousemove', circle, false);
                 circle();
+            } else if (tool === 'rectangleFull') {
+                tmpCanvas.addEventListener('mousemove', rectangleFull, false);
+                rectangleFull();
             } else if (tool === 'circleFull') {
                 tmpCanvas.addEventListener('mousemove', circleFull, false);
                 circleFull();
@@ -302,9 +313,8 @@ $(function () {
 
         // Sauvegarder le dessin
         $('.saveCanvas').click(function () {
-           var dataUrl = canvas.toDataURL('image/png');
-           window.open(dataUrl, "toDataURL() image", 'width=canvas.width, height=canvas.height');
-           log(dataUrl);
+            var dataUrl = canvas.toDataURL('image/png');
+            window.open(dataUrl, "toDataURL() image", 'width=canvas.width, height=canvas.height');
         });
     }
 
