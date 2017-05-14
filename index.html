@@ -1,89 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-    <script src="js/main.js"></script>
-    <!--<script src="js/test.js"></script>-->
-    <title>Paint</title>
-</head>
-<body class="#efebe9 brown lighten-5">
-<div class="container">
-    <h1>My Paints</h1>
-    <div class="row">
-        <div class="col s6" id="tools">
-            <!-- Button pour le dessin libre  -->
-            <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 pencil" id="pencil">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-            </button>
-            <!-- Button pour le dessin libre  -->
-            <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 brush" id="brush">
-                <i class="fa fa-paint-brush" aria-hidden="true"></i>
-            </button>
-            <!-- Button pour dessiner un trait  -->
-            <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 trait" id="trait">
-                <i class="fa fa-window-minimize" aria-hidden="true"></i>
-            </button>
-            <!-- Button pour dessiner un rectangle  -->
-            <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 rectangle" id="rectangle">
-                <i class="fa fa-square-o" aria-hidden="true"></i>
-            </button>
-            <!-- Button pour dessiner un cercle -->
-            <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 circle" id="circle">
-                <i class="fa fa-circle-o" aria-hidden="true"></i>
-            </button>
-            <!-- Button pour dessiner un rectangle plein -->
-            <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 rectangleFull" id="rectangleFull">
-                <i class="fa fa-square" aria-hidden="true"></i>
-            </button>
-            <!-- Button pour dessiner un cercle plein -->
-            <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 circleFull" id="circleFull">
-                <i class="fa fa-circle" aria-hidden="true"></i>
-            </button>
-            <!-- Button pour gommer -->
-            <!--<span class="titre-options">Gomme</span>-->
-            <button class="btn btn-floating btn-large waves-effect waves-light #b71c1c red darken-4 gomme" id="gomme">
-                <i class="fa fa-eraser" aria-hidden="true"></i>
-            </button>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+        <script src="js/main.js"></script>
+        <!--<script src="js/test.js"></script>-->
+        <title>Paint</title>
+    </head>
+    <body class="#efebe9 brown lighten-5">
+        <div class="container">
+            <h1>My Paints</h1>
+            <div class="row">
+                <div class="col s6" id="tools">
+                    <!-- Button pour le dessin libre  -->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 pencil" id="pencil">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                    <!-- Button pour le dessin libre  -->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 brush" id="brush">
+                        <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                    </button>
+                    <!-- Button pour dessiner un trait  -->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 trait" id="trait">
+                        <i class="fa fa-window-minimize" aria-hidden="true"></i>
+                    </button>
+                    <!-- Button pour dessiner un rectangle  -->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 rectangle" id="rectangle">
+                        <i class="fa fa-square-o" aria-hidden="true"></i>
+                    </button>
+                    <!-- Button pour dessiner un cercle -->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 circle" id="circle">
+                        <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    </button>
+                    <!-- Button pour dessiner un rectangle plein -->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 rectangleFull" id="rectangleFull">
+                        <i class="fa fa-square" aria-hidden="true"></i>
+                    </button>
+                    <!-- Button pour dessiner un cercle plein -->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #0277bd light-blue darken-3 circleFull" id="circleFull">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                    </button>
+                    <!-- Button pour gommer -->
+                    <!--<span class="titre-options">Gomme</span>-->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #b71c1c red darken-4 gomme" id="gomme">
+                        <i class="fa fa-eraser" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="col s2">
+                    <input type="color" class="colors">
+                </div>
+                <div class="col s4">
+                    <span class="titre-options">Taille du pinceau</span>
+                    <input type="range" min="2" max="50" value="5" step="1" class="largeur">
+                </div>
+            </div> <!-- End Of .row  -->
+            <div class="row">
+                <div class="col s6">
+                    <!-- Revenir en arrière -->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #455a64 blue-grey darken-2 undo" id="undo">
+                        <i class="material-icons">undo</i>
+                    </button>
+                    <!-- Revenir en avant -->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #455a64 blue-grey darken-2 redo" id="redo">
+                        <i class="material-icons">redo</i>
+                    </button>
+                    <!-- Sauvegarder le dessin -->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #a5d6a7 green lighten-3 saveCanvas" id="saveCanvas">
+                        <i class="material-icons">file_download</i>
+                    </button>
+                    <!-- Charger un fichier -->
+                    <button class="btn btn-floating btn-large waves-effect waves-light #81c784 green lighten-2 uploadCanvas" id="uploadCanvas">
+                        <i class="material-icons">file_upload</i>
+                    </button>
+                </div>
+            </div>
+            <div class="paint">
+                <canvas id="myCanvas" width="800" height="450"></canvas>
+            </div>
         </div>
-        <div class="col s2">
-            <input type="color" class="colors">
-        </div>
-        <div class="col s4">
-            <span class="titre-options">Taille du pinceau</span>
-            <input type="range" min="2" max="50" value="5" step="1" class="largeur">
-        </div>
-    </div> <!-- End Of .row  -->
-    <div class="row">
-        <div class="col s6">
-            <!-- Revenir en arrière -->
-            <button class="btn btn-floating btn-large waves-effect waves-light #455a64 blue-grey darken-2 undo" id="undo">
-                <i class="material-icons">undo</i>
-            </button>
-            <!-- Revenir en avant -->
-            <button class="btn btn-floating btn-large waves-effect waves-light #455a64 blue-grey darken-2 redo" id="redo">
-                <i class="material-icons">redo</i>
-            </button>
-            <!-- Sauvegarder le dessin -->
-            <button class="btn btn-floating btn-large waves-effect waves-light #a5d6a7 green lighten-3 saveCanvas" id="saveCanvas">
-                <i class="material-icons">file_download</i>
-            </button>
-            <!-- Charger un fichier -->
-            <button class="btn btn-floating btn-large waves-effect waves-light #81c784 green lighten-2 saveCanvas" id="saveCanvas">
-                <i class="material-icons">file_upload</i>
-            </button>
-        </div>
-    </div>
-    <div class="paint">
-        <canvas id="myCanvas" width="800" height="450"></canvas>
-    </div>
-</div>
-</body>
+    </body>
 </html>
