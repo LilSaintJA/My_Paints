@@ -49,6 +49,7 @@ $(function () {
 
     /**
      * dessine un trait
+     *
      */
     function trait() {
         var i;
@@ -74,7 +75,31 @@ $(function () {
     }
 
     function rectangle() {
-        log('rectangle');
+        // log('rectangle');
+        var i,
+            x,
+            y,
+            width,
+            height;
+
+        for (i = 0; i < clickX.length; i += 1) {
+            x = Math.min(startClickX[i - 1]);
+            y = Math.min(startClickY[i - 1]);
+            width = Math.abs(clickX[i]);
+            height = Math.abs(clickY[i]);
+
+            ctx.strokeRect(x, y, width, height);
+
+            ctx.strokeStyle = changeColor[i];
+            ctx.lineWidth = changeSize[i];
+            ctx.stroke();
+        }
+
+        log(x);
+        log(y);
+        log('-----------------');
+        log(width);
+        log(height);
     }
 
     function rond() {
@@ -146,8 +171,25 @@ $(function () {
                 });
             });
 
-        });
-        
+        }); // End of Trait
+
+        $('.rectangle').click(function () {
+            canvas.addEventListener('mousedown', function (evt) {
+                paint = true;
+                // canvasClick(evt.pageX - this.offsetLeft, evt.pageY - this.offsetTop);
+                // rectangle();
+
+                // On bouge avec la souris
+                canvas.addEventListener('mousemove', function (evt) {
+                    var self = this;
+                    if (paint) {
+                        canvasClick(evt.pageX - self.offsetLeft, evt.pageY - self.offsetTop, true);
+                        rectangle();
+                    }
+                });
+            });
+        }); // End of Rectangle
+
         // On relache le bouton de la souris
         canvas.addEventListener('mouseup', function () {
             paint = false;
