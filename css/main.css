@@ -4,12 +4,21 @@ h1, h2 {
     font-size: 5rem;
 }
 
-#myCanvas {
+.paint {
     position: relative;
+    margin: 30px 0;
+}
+
+#myCanvas {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     border: 10px solid #000;
     border-radius: 5px;
     background-color: #FFFFFF;
-    display: block;
     margin: 0 auto;
     cursor: pointer;
 }
@@ -17,13 +26,12 @@ h1, h2 {
 .tmpCanvas {
     position: absolute;
     display: block;
-    right: 320px;
-    top: 298px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
     cursor: pointer;
-}
-
-.paint {
-    margin: 30px 0;
 }
 
 .colors {
