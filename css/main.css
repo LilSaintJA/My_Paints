@@ -1,0 +1,33 @@
+h1, h2 {
+    text-align: center;
+    font-family: 'Cookie', cursive;
+    font-size: 5rem;
+}
+
+#myCanvas {
+    position: relative;
+    border: 10px solid #000;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.tmpCanvas {
+    position: absolute;
+    display: block;
+    right: 320px;
+    top: 298px;
+    cursor: pointer;
+}
+
+.paint {
+    margin: 30px 0;
+}
+
+.colors {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
